@@ -1,0 +1,30 @@
+<table mat-table [dataSource]="userData" class="mat-elevation-z8">
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef> First Name </th>
+    <td mat-cell *matCellDef="let user"> {{user.firstname}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let user"> {{user.lastname}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef> Sex </th>
+    <td mat-cell *matCellDef="let user"> {{user.gender == 'M' ? 'Male' : 'Female'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dob">
+    <th mat-header-cell *matHeaderCellDef> Birth Date </th>
+    <td mat-cell *matCellDef="let user"> {{user.dob | date:'longDate'}} </td>
+  </ng-container>
+
+  <tr cdk-header-row *cdkHeaderRowDef="userColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: userColumns"></tr>
+
+</table>

@@ -1,0 +1,28 @@
+<div class="form-container">
+  <mat-form-field>
+    <input matInput [(ngModel)]="user.firstname" placeholder="First Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="user.lastname" placeholder="Last Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select Gender" [(ngModel)]="user.gender">
+      <mat-option *ngFor="let gen of genders" value="{{gen.code}}">{{gen.value}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput type="email" [(ngModel)]="user.email" placeholder="Enter Email">
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="user.dob" placeholder="Choose a date" (dateChange)="getFormattedDate($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-button (click)="saveData()">Click me!</button>
+
+</div>

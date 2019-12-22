@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+@function myfunction($param1, $param2){
+  @return unquote($param1 + $param2 + "%");
+}
+
+table{
+  width: myfunction(4,5);
+
+}
